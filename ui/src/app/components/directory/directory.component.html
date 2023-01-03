@@ -1,0 +1,42 @@
+<div class="m-5 p-3">
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex ">
+            <img src="../../../assets/house-door-fill.svg" alt="up button" class="browser-icon" (click)="files()">
+            <img src="../../../assets/arrow-up-square-fill.svg" alt="up button" class="browser-icon mb-2"
+                (click)="up()">
+        </div>
+
+        <h5 class="d-flex align-items-center">
+            Current Directory: &nbsp; <span class="text-decoration-underline">{{ currentDir }} </span>
+        </h5>
+    </div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="table-row">
+                <th>Name</th>
+                <th>Creation date</th>
+                <th>Extension</th>
+                <th>Permisions</th>
+                <th>Size</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let fileResult of fileResults" (click)="openDirectory(fileResult)" class="file-result-row">
+                <td>
+                    <img [src]="fileResult.isDirectory ? '../../../assets/folder-fill.svg' : '../../../assets/file-earmark.svg' "
+                        alt="up button" class="file-result-icon">
+
+                    {{ fileResult?.name }}
+                </td>
+                <td>{{ fileResult?.creationDate }}</td>
+                <td>{{ fileResult?.ext }}</td>
+                <td>{{ fileResult?.permissions }}</td>
+                <td>{{ fileResult?.size }}</td>
+                <td><span class="badge" [class]="[fileResult?.isDirectory ? 
+                    'bg-success' : 'bg-primary' ]">{{ fileResult?.isDirectory ? 'directory' : 'file' }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

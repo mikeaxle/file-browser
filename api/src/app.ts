@@ -10,7 +10,12 @@ const app = express()
 const dir = process.cwd();
 const port = 3000
 
-app.get("/", (_, res) => res.send(`Application running on port ${port}.`))
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // update to match the domain you will make the request from, usually 4200
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+
 
 /**
  * Retrieve directory listing
@@ -65,5 +70,8 @@ app.get('/api/files', (req, res) => {
     }
   })
 })
+
+
+app.get("/", (_, res) => res.send(`Application running on port ${port}.`))
 
 app.listen(port, () => console.log(`Application running on port ${port}.`))
