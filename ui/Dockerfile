@@ -1,6 +1,8 @@
 ### STAGE 1:BUILD ###
 # Defining a node image to be used as giving it an alias of "build"
+# Please comment line 4 and uncomment line 5 if you are not using an arm CPU
 FROM arm64v8/node AS build
+# FROM node:lts-alpine AS build
 
 # Create a Virtual directory inside the docker image
 WORKDIR /dist/src/app
