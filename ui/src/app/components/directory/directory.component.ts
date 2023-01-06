@@ -33,11 +33,11 @@ export class DirectoryComponent implements OnInit {
     }
   }
 
-  up(){
+  up() {
     const currentDir = this.currentDir.split('/')
     currentDir.pop()
     const parentDir = currentDir.join('/')
-    
+
     this.files(parentDir)
     this.currentDir = parentDir
   }

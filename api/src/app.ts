@@ -41,10 +41,10 @@ app.get('/api/files', (req, res) => {
 
       files.forEach(file => {
         try {
-          let fileStats = statSync(join(currentDir, file))
-          let isDirectory = fileStats.isDirectory();
+          const fileStats = statSync(join(currentDir, file))
+          const isDirectory = fileStats.isDirectory();
 
-          let path: FileResult = {
+          const path: FileResult = {
             name: file,
             path: join(`${query}`, file),
             isDirectory: false,

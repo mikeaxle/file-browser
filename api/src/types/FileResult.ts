@@ -3,7 +3,7 @@ export type FileResult = {
     isDirectory: boolean;
     path: string;
     ext?: string;
-    size?: Number;
+    size?: number;
     creationDate?: Date;
     permissions?: any;
 }

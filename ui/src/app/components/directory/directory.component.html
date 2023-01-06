@@ -22,7 +22,6 @@
             </tr>
         </thead>
         <tbody>
-
             <tr *ngFor="let fileResult of fileResults" (click)="openDirectory(fileResult)" class="file-result-row">
                 <td>
                     <img [src]="fileResult.isDirectory ? '../../../assets/folder-fill.svg' : '../../../assets/file-earmark.svg' "
